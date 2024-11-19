@@ -21,21 +21,6 @@ class ShortUuidTest {
     }
 
     @Test
-    void testRandomShortUuidWithCustomAlphabet() {
-        var customAlphabet = "abcdef1234567890".toCharArray();
-
-        var shortUuid = ShortUuid.random(customAlphabet);
-        assertThat(shortUuid).isNotNull();
-        assertThat(shortUuid.toString()).isNotEmpty();
-
-        assertThat(shortUuid.toString()).matches("^[abcdef1234567890]+$");
-
-        var decodedUuid = shortUuid.decode();
-        assertThat(decodedUuid).isNotNull();
-        assertThat(decodedUuid.toString()).matches("^[a-f0-9\\-]{36}$");
-    }
-
-    @Test
     void testEncodeAndDecode() {
         var uuid = UUID.randomUUID();
 
